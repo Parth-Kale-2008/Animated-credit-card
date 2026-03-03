@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Animated Credit Card — HTML CSS JS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+   
+    <div class="card-wrap" aria-hidden="false">
+      <div class="card" id="card">
+        
+        <div class="card-face front" id="card-front">
+          <div class="top-row">
+            <div class="chip" aria-hidden="true">EMV</div>
+            <div class="brand" id="card-brand">DISCOVER</div>
+          </div>
+
+          <div class="number" id="card-number-display" aria-label="Card number">
+            <div class="grp" data-index="0">####</div>
+            <div class="grp" data-index="1">####</div>
+            <div class="grp" data-index="2">####</div>
+            <div class="grp" data-index="3">####</div>
+          </div>
+
+          <div class="bottom-row">
+            <div class="name">
+              <div style="font-size:10px; color:rgba(255,255,255,0.7)">Card Holder</div>
+              <div id="card-name" style="font-size:14px; margin-top:6px;">FULL NAME</div>
+            </div>
+            <div class="expiry">
+              <div style="font-size:10px; color:rgba(255,255,255,0.7)">Expires</div>
+              <div id="card-expiry" style="font-size:14px; margin-top:6px;">MM/YY</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-face back" id="card-back">
+          <div class="mag-strip"></div>
+          <div class="back-content">
+            <div class="sig">
+              <div class="sig-box" id="sig-box">SIGNATURE</div>
+              
+              <div class="cvv" id="card-cvv-display">•••</div>
+            </div>
+            <div class="muted" style="margin-top:12px; font-size:12px;">
+              children's bank of india
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="panel" id="card-form" onsubmit="return false" novalidate>
+      <h2>Animated Credit Card</h2>
+      <div class="fields">
+        <div>
+          <label for="number">Card Number</label>
+          <input id="number" type="text" inputmode="numeric" maxlength="19" placeholder="6011 2131 2313 1232" autocomplete="cc-number" />
+        </div>
+
+        <div>
+          <label for="name">Card Holder</label>
+          <input id="name" type="text" maxlength="30" placeholder="@coding.stella" autocomplete="cc-name" />
+        </div>
+
+        <div class="row2">
+          <div>
+            <label for="month">Expiration Month</label>
+            <select id="month" aria-label="Month">
+              <option value="">Month</option>
+            </select>
+          </div>
+          <div>
+            <label for="year">Expiration Year</label>
+            <select id="year" aria-label="Year">
+              <option value="">Year</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div>
+            <label for="cvv">CVV</label>
+            <input id="cvv" type="text" maxlength="4" inputmode="numeric" placeholder="123" autocomplete="cc-csc" />
+          </div>
+          <div>
+            <label style="visibility:hidden">placeholder</label>
+            <button class="submit" id="submit-btn">Submit</button>
+          </div>
+        </div>
+
+        <div class="muted">Tip: Click into the CVV field to flip the card </div>
+      </div>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
