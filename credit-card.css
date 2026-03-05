@@ -1,0 +1,82 @@
+:root {
+  --bg:#16121a;
+  --muted:#9aa0ad;
+  --card-gradient: linear-gradient(135deg,#0b0f1a 0%, #171223 45%, #1e1a2b 100%);
+}
+
+* { box-sizing:border-box }
+body {
+  margin:0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color:#f5f7fb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+}
+
+.container {
+  width:100%;
+  max-width:920px;
+  display:grid;
+  grid-template-columns: 480px 1fr;
+  gap:36px;
+  align-items:center;
+}
+
+.card-wrap { perspective:1200px; }
+.card {
+  width:420px;
+  height:250px;
+  border-radius:14px;
+  transform-style:preserve-3d;
+  transition: transform 0.8s;
+  position:relative;
+}
+.card.is-flipped { transform: rotateY(180deg); }
+.card-face {
+  position:absolute;
+  inset:0;
+  backface-visibility:hidden;
+  border-radius:14px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:22px;
+}
+.front { background: var(--card-gradient); }
+.back { background:#101218; transform:rotateY(180deg); }
+
+.top-row { display:flex; justify-content:space-between; }
+.chip { width:54px; height:40px; background:#ccc; border-radius:6px; }
+.number { font-size:20px; display:flex; justify-content:space-between; }
+.bottom-row { display:flex; justify-content:space-between; margin-top:18px; }
+.name, .expiry { font-size:13px; }
+
+.mag-strip { height:48px; background:#333; margin-top:18px; }
+.sig { display:flex; gap:12px; margin-top:10px; }
+.sig-box { flex:1; background:#8B0000; padding:6px; }
+.cvv { width:72px; background:#333333; text-align:center; }
+
+.panel {
+  background:#1a1a1a;
+  padding:22px;
+  border-radius:12px;
+}
+.fields { display:grid; gap:12px; }
+.row2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+label { font-size:12px; color:var(--muted); }
+input, select {
+  width:100%; padding:10px; border-radius:8px;
+  border:1px solid #444; background:#222; color:#fff;
+}
+.submit {
+  padding:12px; border-radius:10px;
+  border:none; cursor:pointer; background:#3b82f6; color:white;
+}
+#card-name {
+  color: #ff3b3b;   
+  font-weight: 600; 
+}
